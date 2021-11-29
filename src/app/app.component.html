@@ -8,10 +8,20 @@
 
 <!--
     [ngModel]="name": one way data binding ou seja,
-    só traz o valor do elemento, não atualiza a página caso 
+    só traz o valor do elemento, não atualiza a página caso
     o mesmo mude. Junção de uma via.
     [(ngModel)]="name" : to way data binding. Junção de duas vias,
-    ou seja, vai tanto alterar a propriedade quanto atualizar 
-    a tela sempre que a mesma mudar 
+    ou seja, vai tanto alterar a propriedade quanto atualizar
+    a tela sempre que a mesma mudar
  -->
 <input [(ngModel)]="name" name="name"/>
+
+<!-- <br />
+
+<app-course-list></app-course-list> -->
+
+<br />
+
+<div class="container">
+    <app-course-list></app-course-list>
+</div>
