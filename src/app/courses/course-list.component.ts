@@ -3,7 +3,9 @@ import { Course } from "./course";
 import { CourseService } from "./course.service";
 
 @Component({
-    selector: 'app-course-list',
+    ///Não precisamos mais do selector pois ele deixará de ser uma tag
+    ///e passará a ser uma rota, como uma página
+    // selector: 'app-course-list',
     // template: '<h2> Course List </h2>',
     templateUrl: 'course-list.component.html'
 })

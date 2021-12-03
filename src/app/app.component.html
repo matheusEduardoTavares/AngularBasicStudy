@@ -1,10 +1,10 @@
-{{ title }}
+<!-- {{ title }}
 
 <br />
 
 {{ name }}
 
-<br />
+<br /> -->
 
 <!--
     [ngModel]="name": one way data binding ou seja,
@@ -14,14 +14,16 @@
     ou seja, vai tanto alterar a propriedade quanto atualizar
     a tela sempre que a mesma mudar
  -->
-<input [(ngModel)]="name" name="name"/>
+<!-- <input [(ngModel)]="name" name="name"/> -->
 
 <!-- <br />
 
 <app-course-list></app-course-list> -->
 
-<br />
+<!-- <br /> -->
 
-<div class="container">
-    <app-course-list></app-course-list>
+<app-nav-bar></app-nav-bar>
+<div class="container mt-4">
+    <!-- <app-course-list></app-course-list> -->
+    <router-outlet></router-outlet>
 </div>
