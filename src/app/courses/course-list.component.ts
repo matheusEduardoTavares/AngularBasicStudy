@@ -9,12 +9,17 @@ import { CourseService } from "./course.service";
 })
 ///Implementamos métodos do ciclo de vida
 export class CourseListComponent implements OnInit {
-  courses: Course[] = [];
+  filteredCourses: Course[] = [];
+
+  _courses: Course[] = [];
 
   constructor(private courseService: CourseService) {}
 
+  _filterBy: string;
+
   ngOnInit(): void {
-    this.courses = this.courseService.retrieveAll();
+    this._courses = this.courseService.retrieveAll();
+    this.filteredCourses = this._courses;
     // this.courses.push(
       // {
       //   id: 1,
@@ -37,5 +42,16 @@ export class CourseListComponent implements OnInit {
       //   releaseDate: 'December, 4, 2019'
       // },
     // );
+  }
+
+  set filter(value: string) {
+    this._filterBy = value;
+    this.filteredCourses = this._courses.filter(
+      (course: Course) => course.name.toLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > - 1
+    );
+  }
+
+  get filter(): string {
+    return this._filterBy;
   }
 }

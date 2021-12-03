@@ -1,5 +1,12 @@
 <h2> Course List 2 </h2>
 
+<div class="form-group row">
+  <label class="col-sp-2 col-form-label">Filter By</label>
+  <div class="col-sm-10">
+    <input [(ngModel)]="filter" type="text" class="form-control" />
+  </div>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let course of courses">
+    <tr *ngFor="let course of filteredCourses">
       <!--
         Colocamos o atributo HTML entre colchetes quando
         queremos que a string seja um dado pego do component.ts e não
