@@ -31,6 +31,16 @@ export class CourseListComponent implements OnInit {
     });
   }
 
+  deleteById(courseId: number): void {
+    this.courseService.deleteById(courseId).subscribe({
+      next: () => {
+        console.log('Deleted with success');
+        this.retrieveAll();
+      },
+      error: error => console.log('Error', error),
+    });
+  }
+
   ngOnInit(): void {
     // this._courses = this.courseService.retrieveAll();
     // this.filteredCourses = this._courses;
