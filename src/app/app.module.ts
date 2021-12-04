@@ -10,6 +10,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Error404Component } from './404/error-404.component';
 import { CoursesInfoComponent } from './courses/courses.info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CoursesInfoComponent } from './courses/courses.info.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         ///O path em branco o angular entende que é raíz do path (localhost:4200),

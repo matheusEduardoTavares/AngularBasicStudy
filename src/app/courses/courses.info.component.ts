@@ -16,13 +16,22 @@ export class CoursesInfoComponent implements OnInit{
 
   ngOnInit(): void {
     // this.courseId = Number(this.route.snapshot.paramMap.get('id')!);
-    this.course = this.courseService.retrieveById(
+    this.courseService.retrieveById(
       +this.route.snapshot.paramMap.get('id')!
-    );
+    ).subscribe({
+      next: course => {
+        this.course = course;
+      },
+      error: err => console.log('Error', err)
+    });
   }
 
   save(): void {
-    this.courseService.save(this.course);
+    this.courseService.save(this.course)
+      .subscribe({
+        next: (course) => console.log('Saved with success', course),
+        error: error => console.log('Error', error)
+      })
   }
 
 }
