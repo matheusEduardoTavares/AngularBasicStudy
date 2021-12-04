@@ -9,6 +9,7 @@ import { StarComponent } from './star/star.component';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Error404Component } from './404/error-404.component';
+import { CoursesInfoComponent } from './courses/courses.info.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Error404Component } from './404/error-404.component';
     ReplacePipe,
     NavBarComponent,
     Error404Component,
+    CoursesInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,11 +38,15 @@ import { Error404Component } from './404/error-404.component';
         path: 'courses',
         component: CourseListComponent,
       },
+      {
+        path: 'courses/info/:id',
+        component: CoursesInfoComponent,
+      },
       ///Quando não encontrar uma rota, é redirecionado para **
       {
         path: '**',
         component: Error404Component
-      }
+      },
     ]),
   ],
   providers: [],
