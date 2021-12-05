@@ -1,31 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CourseListComponent } from './courses/course-list.component';
-import { StarComponent } from './star/star.component';
-import { ReplacePipe } from './pipes/replace.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Error404Component } from './404/error-404.component';
-import { CoursesInfoComponent } from './courses/courses.info.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CourseModule } from './courses/course.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
-    StarComponent,
-    ReplacePipe,
     NavBarComponent,
     Error404Component,
-    CoursesInfoComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
+    CourseModule,
     RouterModule.forRoot([
       {
         ///O path em branco o angular entende que é raíz do path (localhost:4200),
@@ -34,15 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
         path: '',
         redirectTo: 'courses',
         pathMatch: 'full'
-      },
-      ///Rota de /courses
-      {
-        path: 'courses',
-        component: CourseListComponent,
-      },
-      {
-        path: 'courses/info/:id',
-        component: CoursesInfoComponent,
       },
       ///Quando não encontrar uma rota, é redirecionado para **
       {
