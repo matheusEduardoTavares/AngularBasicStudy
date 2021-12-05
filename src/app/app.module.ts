@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { Error404Component } from './404/error-404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseModule } from './courses/course.module';
 import { CoreModule } from './core/core.module';
@@ -11,13 +10,12 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    Error404Component,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    CoreModule,
     CourseModule,
+    CoreModule,
     RouterModule.forRoot([
       {
         ///O path em branco o angular entende que é raíz do path (localhost:4200),
@@ -28,10 +26,10 @@ import { CoreModule } from './core/core.module';
         pathMatch: 'full'
       },
       ///Quando não encontrar uma rota, é redirecionado para **
-      {
-        path: '**',
-        component: Error404Component
-      },
+      // {
+      //   path: '**',
+      //   component: Error404Component
+      // },
     ]),
   ],
   providers: [],
