@@ -2,8 +2,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { ReplacePipe } from "../pipes/replace.pipe";
-import { StarComponent } from "../star/star.component";
+import { StarModule } from "../shared/components/star/star.module";
+import { AppPipeModule } from "../shared/pipes/app-pipe.module";
 import { CourseListComponent } from "./course-list.component";
 import { CoursesInfoComponent } from "./courses.info.component";
 
@@ -11,14 +11,14 @@ import { CoursesInfoComponent } from "./courses.info.component";
   declarations: [
     CourseListComponent,
     CoursesInfoComponent,
-    StarComponent,
-    ReplacePipe,
   ],
   ///Outros módulos que esse módulo precisa
   ///para que ele possa existir
   imports: [
     CommonModule,
     FormsModule,
+    AppPipeModule,
+    StarModule,
     ///Como esse não é o módulo pai,
     ///usamos o RouterModule.forChild
     RouterModule.forChild([
